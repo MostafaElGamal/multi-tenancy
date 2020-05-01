@@ -6,7 +6,7 @@ use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
 use Hyn\Tenancy\Models\Hostname;
 use Hyn\Tenancy\Models\Website;
 use Illuminate\Database\Seeder;
-use App\System\Customers;
+use App\Models\System\Customers;
 
 
 class BuildDatabasesForTenants extends Seeder
@@ -21,7 +21,7 @@ class BuildDatabasesForTenants extends Seeder
         $customers = [
             [
                 'database' => 'laravel__FooCustomer',
-                'domain' => 'test.localhost',
+                'domain' => 'foo.tenancy.localhost',
                 'name' => 'FooCustomer',
                 'email' => 'customer@foo.com'
             ],

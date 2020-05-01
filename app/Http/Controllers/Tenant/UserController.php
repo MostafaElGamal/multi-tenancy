@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Tenant\User;
+use App\Models\Tenant\User;
 
 class UserController extends Controller
 {

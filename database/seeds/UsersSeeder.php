@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
-use App\System\User;
+use App\Models\System\User;
 
 class UsersSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        for ($x = 0; $x <= 10; $x++) {
+        for ($x = 0; $x <= 5; $x++) {
             $faker = Faker::create();
             User::create([
                 'name' => $faker->name,
