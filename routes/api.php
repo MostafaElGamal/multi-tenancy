@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 Route::get('/users', 'System\UserController@index');
+
+Route::post('login', 'System\AuthController@login');
+
+Route::group(['middleware' => ['assign.guard:system', 'jwt.auth']], function () {
+    Route::post('logout', 'System\AuthController@logout');
+    Route::post('refresh', 'System\AuthController@refresh');
+    Route::post('me', 'System\AuthController@me');
+});

@@ -46,7 +46,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        $this->mapTenantRoutes();
 
         //
     }
@@ -78,21 +77,5 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
-    }
-    /**
-     * Define the "api" routes for the application.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
-    protected function mapTenantRoutes()
-    {
-        $namespace = 'App\Http\Controllers\Tenant';
-
-        Route::prefix('api')
-            ->middleware('api')
-            ->namespace($namespace)
-            ->group(base_path('routes/tenants.php'));
     }
 }
