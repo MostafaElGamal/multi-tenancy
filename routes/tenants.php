@@ -16,7 +16,7 @@ $namespace = 'App\\Http\\Controllers\\Tenant\\';
 |
 */
 Route::prefix('api')->namespace($namespace)->group(function () {
-    Route::get('/users', 'UserController@index');
+    Route::get('users', 'UserController@index');
     Route::post('login', 'AuthController@login');
 
     Route::group(['middleware' => ['assign.guard:tenant', 'jwt.auth']], function () {
