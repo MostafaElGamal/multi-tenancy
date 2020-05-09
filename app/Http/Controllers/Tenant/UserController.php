@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tenant\User;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -15,16 +16,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        $hostname  = app(\Hyn\Tenancy\Environment::class)->hostname();
-        // Get Current Customer 
-        // dd($hostname->customer->name);
+        // Get Current Customer and his permissions
+        // return Permission::all();
+        // $hostname  = app(\Hyn\Tenancy\Environment::class)->hostname();
+        // dd($hostname->customer->hasPermissionTo('create-users', 'customer'));
+        // dd($hostname->customer->getDirectPermissions());
 
+        $permission = Permission::find(2);
+        $user = User::with('permissions')->find(1);
+        dd($user->hasPermissionTo($permission));
 
-        // Switch if there is customer 
-        if ($fqdn = optional($hostname)->fqdn) {
-            config(['database.default' => 'tenant']);
-            dd($fqdn);
-        }
 
         // Get Users Customer 
         // return User::all();

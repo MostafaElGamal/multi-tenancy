@@ -4,13 +4,15 @@ namespace App\Models\Tenant;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
-use Hyn\Tenancy\Traits\UsesTenantConnection;
+// use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, UsesTenantConnection;
+    // use Notifiable, UsesTenantConnection,HasRoles;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.

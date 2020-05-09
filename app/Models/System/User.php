@@ -2,6 +2,7 @@
 
 namespace App\Models\System;
 
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Hyn\Tenancy\Traits\UsesSystemConnection;
@@ -10,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, UsesSystemConnection;
+    use Notifiable, UsesSystemConnection, HasRoles;
 
     /**
      * The attributes that are mass assignable.

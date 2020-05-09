@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Closure;
 
-class AssignGuard
+class AuthGuardChecker
 {
     /**
      * Handle an incoming request.

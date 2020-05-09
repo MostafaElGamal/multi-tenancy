@@ -23,7 +23,7 @@ Route::get('/users', 'System\UserController@index');
 
 Route::post('login', 'System\AuthController@login');
 
-Route::group(['middleware' => ['assign.guard:system', 'jwt.auth']], function () {
+Route::group(['middleware' => ['auth.guard.checker:system', 'jwt.auth']], function () {
     Route::post('logout', 'System\AuthController@logout');
     Route::post('refresh', 'System\AuthController@refresh');
     Route::post('me', 'System\AuthController@me');

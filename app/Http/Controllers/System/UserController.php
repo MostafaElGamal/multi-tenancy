@@ -5,6 +5,7 @@ namespace App\Http\Controllers\System;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\System\User;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -15,6 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        $permission = Permission::find(1);
+        $user = User::with('permissions')->find(1);
+        dd($user->hasPermissionTo($permission));
     }
 }
