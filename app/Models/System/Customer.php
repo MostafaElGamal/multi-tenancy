@@ -9,4 +9,11 @@ use Spatie\Permission\Traits\HasRoles;
 class Customer extends Model
 {
     use  UsesSystemConnection, HasRoles;
+
+    protected $guarded = [];
+    
+    public function hostname()
+    {
+        return $this->hasOne(Hostname::class);
+    }
 }

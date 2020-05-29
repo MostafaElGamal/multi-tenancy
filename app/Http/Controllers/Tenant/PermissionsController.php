@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Tenant;
 
-use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\Controller;
+use App\Models\Tenant\Permission;
 use Illuminate\Http\Request;
 
 class PermissionsController extends Controller
@@ -25,25 +25,10 @@ class PermissionsController extends Controller
         $customerUserPermissions = Permission::all();
         $permissions = [];
         foreach ($customerUserPermissions as $permission) {
-            if ($this->linearSearch($permission, $customerPermissions)) {
+            if (linearSearch($permission, $customerPermissions)) {
                 array_push($permissions, $permission);
             }
         }
         return $permissions;
-    }
-
-    public function linearSearch($value, $array)
-    {
-        $found = false;
-        $index = 0;
-
-        while (!$found && $index < count($array)) {
-            if ($array[$index]->name == $value->name) {
-                $found = true;
-            } else {
-                $index += 1;
-            }
-        }
-        return $found;
     }
 }

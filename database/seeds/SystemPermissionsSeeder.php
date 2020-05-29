@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
+use App\Models\System\Permission;
+// use Spatie\Permission\Models\Permission;
 
 class SystemPermissionsSeeder extends Seeder
 {

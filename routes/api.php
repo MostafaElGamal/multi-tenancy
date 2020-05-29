@@ -29,5 +29,6 @@ Route::group(['middleware' => ['auth.guard.checker:system', 'jwt.auth']], functi
     Route::post('refresh', 'System\AuthController@refresh');
     Route::post('user', 'System\AuthController@user');
     Route::apiResource('/users', 'System\UserController');
+    Route::apiResource('/customers', 'System\CustomersController');
     Route::get('permissions', 'System\PermissionsController@index');
 });

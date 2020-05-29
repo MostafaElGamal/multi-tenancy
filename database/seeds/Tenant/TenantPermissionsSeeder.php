@@ -2,7 +2,7 @@
 
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
+use App\Models\Tenant\Permission;
 
 class TenantPermissionsSeeder extends Seeder
 {

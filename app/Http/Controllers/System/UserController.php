@@ -5,7 +5,7 @@ namespace App\Http\Controllers\System;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\System\User;
-use Spatie\Permission\Models\Permission;
+use App\Models\System\Permission;
 
 class UserController extends Controller
 {
