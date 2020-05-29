@@ -19,12 +19,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/users', 'System\UserController@index');
 
 Route::post('login', 'System\AuthController@login');
+Route::get('/checkTenant', 'System\ConfigController@checkTenant');
+
 
 Route::group(['middleware' => ['auth.guard.checker:system', 'jwt.auth']], function () {
     Route::post('logout', 'System\AuthController@logout');
     Route::post('refresh', 'System\AuthController@refresh');
-    Route::post('me', 'System\AuthController@me');
+    Route::post('user', 'System\AuthController@user');
+    Route::apiResource('/users', 'System\UserController');
+    Route::get('permissions', 'System\PermissionsController@index');
 });

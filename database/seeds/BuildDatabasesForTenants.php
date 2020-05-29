@@ -21,7 +21,7 @@ class BuildDatabasesForTenants extends Seeder
     {
         $customers = [
             [
-                'domain' => 'foo.tenancy.localhost',
+                'domain' => 'foo.api.tenancy.localhost',
                 'name' => 'FooCustomer',
                 'email' => 'customer@foo.com'
             ],
